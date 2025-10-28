@@ -1,0 +1,128 @@
+:root{
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #1f6feb;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+
+.app{
+  display:flex;flex-direction:column;height:100%;background:var(--bg);
+}
+.header{
+  padding:16px 20px;border-bottom:1px solid rgba(0,0,0,0.06);background:linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));display:flex;align-items:center;justify-content:space-between;gap:20px
+}
+.header h1{margin:0;font-size:18px}
+.controls{display:flex;gap:12px;align-items:center}
+.controls label{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center}
+.controls input[type="number"]{width:70px;padding:6px;border-radius:6px;border:1px solid #ddd}
+.controls button{padding:6px 10px;border-radius:6px;border:1px solid #ddd;background:var(--card);cursor:pointer}
+
+.main{flex:1;display:flex;gap:16px;padding:16px}
+.map-section{flex:2;min-height:400px;background:var(--card);border-radius:8px;padding:8px;overflow:hidden}
+.list-section{flex:1;min-width:300px;background:var(--card);border-radius:8px;padding:12px;display:flex;flex-direction:column}
+.meta{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+.quake-list{list-style:none;padding:0;margin:0;overflow:auto}
+.quake-item{padding:8px;border-radius:6px;border:1px solid rgba(0,0,0,0.04);margin-bottom:8px}
+.q-head{display:flex;justify-content:space-between;gap:8px}
+.place{color:var(--muted);font-size:13px}
+.q-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px}
+.q-actions{margin-top:8px}
+.q-actions a{font-size:13px;color:var(--accent);text-decoration:none}
+.footer{text-align:center;padding:12px;font-size:13px;color:var(--muted)}
+.error{color:#a00}
+
+@media (max-width:900px){
+  .main{flex-direction:column}
+  .list-section{min-width:unset}
+}
+
+.list-section {
+  flex: 1;
+  min-width: 300px;
+  background: var(--card);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.quake-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  max-height: 65vh;
+  scrollbar-width: thin;
+}
+
+.quake-list::-webkit-scrollbar {
+  width: 6px;
+}
+.quake-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.controls input[type="text"] {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.q-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.q-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 160px;
+}
+
+.q-right {
+  text-align: right;
+  min-width: 130px;
+}
+
+.q-city {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.q-coords,
+.q-depth,
+.q-time {
+  margin: 0;
+  font-size: 13px;
+  color: #555;
+}
+
+.q-mag {
+  margin: 0;
+  font-size: 20px;
+  color: #b50000;
+  font-weight: bold;
+}
+
+.q-link {
+  text-decoration: none;
+  color: #1f6feb;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.q-link:hover {
+  text-decoration: underline;
+}
