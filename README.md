@@ -139,7 +139,4 @@ Each feature contains:
 
 ---
 
-```
-
----
 
