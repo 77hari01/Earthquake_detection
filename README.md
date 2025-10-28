@@ -1,16 +1,145 @@
-# React + Vite
+# 🌍 Earthquake Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Earthquake Visualizer** is a React + Vite web application that displays real-time earthquake data from the [USGS Earthquake API](https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson).  
+It visualizes global seismic activity on an interactive map and provides a searchable, filterable list of earthquake events.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+### 🗺️ Real-Time Earthquake Map
+- Uses **OpenStreetMap** tiles via `react-leaflet`.
+- Displays earthquake locations as colored circles.
+- Each circle color represents **danger level** based on magnitude.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🔎 Search & Filter
+- Search earthquakes by **country, region, or city name**.
+- Filter by **minimum magnitude**.
+- Press **Enter** to search or **Esc** to clear instantly.
 
-## Expanding the ESLint configuration
+### 📍 Interactive Map
+- Click on any event in the sidebar to **focus** on that earthquake on the map.
+- Each marker shows detailed information in a popup:
+  - Magnitude
+  - Location
+  - Time
+  - Depth
+  - USGS details link
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### ⚡ Live Updates
+- Optional **auto-refresh every 5 minutes**.
+- Manual **Refresh** button also available.
+
+### 🎨 Danger Level Colors
+Earthquake magnitudes are visually classified by color:
+| Magnitude | Level | Color |
+|------------|--------|--------|
+| 0.0 – 2.0 | 🟢 Very Low | `#a3e635` |
+| 2.1 – 3.0 | 🟡 Low | `#facc15` |
+| 3.1 – 4.0 | 🟠 Moderate | `#f97316` |
+| 4.1 – 5.0 | 🟠 Strong | `#fb923c` |
+| 5.1 – 6.0 | 🔴 Severe | `#ef4444` |
+| 6.1 – 7.0 | 🔴 Very Severe | `#dc2626` |
+| 7.1+ | 🟥 Extreme | `#7f1d1d` |
+
+---
+
+## 🧠 Tech Stack
+
+- **React (Vite)** — Frontend framework  
+- **React Leaflet** — Interactive map rendering  
+- **USGS GeoJSON API** — Earthquake data source  
+- **CSS3** — Custom styling  
+- **Lucide React** — Modern icon set  
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/yourusername/earthquake-visualizer.git
+cd earthquake-visualizer
+````
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Run the Development Server
+
+```bash
+npm run dev
+```
+
+Visit [http://localhost:5173](http://localhost:5173)
+
+### 4️⃣ Build for Production
+
+```bash
+npm run build
+```
+
+---
+
+## 🧭 Folder Structure
+
+```
+earthquake-visualizer/
+├
+│── earthquake-icon.png      
+├── src/
+│   ├── components/
+│   │   └── EarthquakeMap.jsx    
+│   ├── App.jsx                   
+│   ├── main.jsx                 
+│   └── styles.css                
+├── index.html                   
+├── package.json
+└── README.md
+```
+
+---
+
+## 🧩 API Information
+
+**Endpoint:**
+
+```
+https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson
+```
+
+**Response Format:** GeoJSON
+Each feature contains:
+
+* `id` – Unique ID
+* `properties.mag` – Magnitude
+* `properties.place` – Location
+* `properties.time` – Timestamp
+* `geometry.coordinates` – `[longitude, latitude, depth]`
+
+---
+
+## 🏆 Highlights
+
+* Real-world API integration
+* Beautiful UI with dynamic color-coding
+* Map-centered interactivity
+* Responsive & mobile-friendly design
+* Clean and maintainable React architecture
+
+---
+
+## 👨‍💻 Author
+
+**AI & DS Developer Project**
+* Hariharan K S
+
+---
+
+```
+
+---
+
